@@ -1,0 +1,11 @@
+.my-modal {
+    .modal-content {
+        background-color: transparent;
+        border: none;
+        color: var(--text-color);
+        .btn-close {
+            display: none;
+        }
+    }
+}
+

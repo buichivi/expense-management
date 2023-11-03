@@ -1,0 +1,50 @@
+.expense_type_page {
+    padding: 24px;
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--bg-primary-color);
+}
+
+.type_list_wrap {
+    max-width: 400px;
+    height: 250px;
+    padding: 24px;
+    color: var(--text-color);
+    .type_list_heading {
+    }
+    .type_list {
+        overflow: auto;
+        height: 100%;
+        padding-left: 0;
+        list-style: none;
+        /* width */
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: var(--track-color);
+            border-radius: 20px;
+        }
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: var(--thumb-color);
+            border-radius: 20px;
+        }
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: var(--thumb-color);
+        }
+        .type_item {
+            border-radius: 4px;
+            padding: 8px 12px;
+            span {
+                float: right;
+            }
+            &:hover {
+                background-color: var(--bg-primary-color);
+                cursor: pointer;
+            }
+        }
+    }
+}

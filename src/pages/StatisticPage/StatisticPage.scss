@@ -1,0 +1,43 @@
+.graph_controls {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .graph_controls_heading {
+        font-size: 2.5rem;
+        color: var(--text-color);
+    }
+    .option {
+        flex-basis: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .time_option_group {
+            .time_options {
+                padding: 7px 24px 7px 12px;
+                font-size: 1.6rem;
+            }
+        }
+        .chart_type_group {
+            .chart_type_list {
+                padding: 7px 24px 7px 12px;
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) { 
+    .option {
+        flex-basis: 25% !important;
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 4px;
+        div {
+            flex: 1;
+        }
+    }
+
+}
