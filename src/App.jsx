@@ -1,14 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import storage from "./store/storage";
 import Header from "./Layout/Header";
 import NavBar from "./Layout/NavBar";
 import Content from "./Layout/Content";
 
 function App() {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(storage.getTheme());
+
+    useEffect(() => {
+        const root = document.querySelector(":root");
+        if (isDarkMode) {
+            root.classList.add('dark-mode');
+        }
+        else root.classList.remove('dark-mode');
+        storage.setTheme(isDarkMode);
+    }, [isDarkMode]);
 
     return (
         <div className="app">
-            <Header setIsDarkMode={setIsDarkMode} />
+            <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
             <div
                 style={{
                     paddingTop: 70,
@@ -17,7 +27,7 @@ function App() {
                 }}
             >
                 <NavBar />
-                <Content isDarkMode={isDarkMode}/>
+                <Content isDarkMode={isDarkMode} />
             </div>
         </div>
     );

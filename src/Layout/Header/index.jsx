@@ -1,9 +1,11 @@
-function Header({ setIsDarkMode }) {
+
+function Header({ isDarkMode, setIsDarkMode }) {
     function themeSwitch() {
         const root = document.querySelector(":root");
         root.classList.toggle('dark-mode');
         setIsDarkMode(prevTheme => !prevTheme)
     }
+
     return (
         <>
             <header
@@ -13,7 +15,7 @@ function Header({ setIsDarkMode }) {
                     left: 0,
                     right: 0,
                     zIndex: 3,
-                    backgroundColor: "var(--bg-primary-color)",
+                    backgroundColor: "var(--header-and-navbar-color)",
                     color: "var(--text-color)",
                     borderBottom: "1px solid var(--border-color)",
                     height: 70,
@@ -50,10 +52,12 @@ function Header({ setIsDarkMode }) {
                                 }}
                             ></i>
                             <h1>Quản lý chi tiêu</h1>
-                            <div className="switch-mode-btn light-mode"
-                                onClick={(e) => {
+                            <div className={`switch-mode-btn ${isDarkMode ? '' : 'light-mode'}`}
+                                onClick={() => {
+                                    console.log(isDarkMode)
                                     themeSwitch()
-                                    e.currentTarget.classList.toggle('light-mode')
+                                    console.log(isDarkMode)
+                                    // e.currentTarget.classList.toggle('light-mode')
                                 }}
                             >
                                 <i className="fa-solid fa-moon"></i>
